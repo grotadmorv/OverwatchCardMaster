@@ -8,9 +8,9 @@ Les utilisateurs pourront aussi accéder à leur profil avec leur ranking, stati
 - Fonctionnalités : <br />
 &nbsp; &nbsp; • Menu <br />
 &nbsp; &nbsp; • Partie en local avec un autre joueur en 1vs1 <br />
-&nbsp; &nbsp;&nbsp; &nbsp;• Enregistrement des données de tous les héros <br />
-&nbsp; &nbsp;&nbsp; &nbsp;• Création des animations, du graphisme des cartes <br />
-&nbsp; &nbsp;&nbsp; &nbsp;• "Moteur de jeu" pour le jeu de carte <br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;• Enregistrement des données de tous les héros <br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;• Création des animations, du graphisme des cartes <br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;• "Moteur de jeu" pour le jeu de carte <br />
 &nbsp; &nbsp;• Accès à son profil et au profil des autres joueurs avec leurs statistiques Overwatch <br />
 &nbsp; &nbsp;• Accès à son profil et au profil des autres joueurs avec leurs statistiques Overwatch Card Master <br />
 
