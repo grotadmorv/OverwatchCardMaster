@@ -4,6 +4,7 @@ Overwatch Card Master est un mini projet mobile en React Native consistant à re
 
 Chaque carte représente un héros, avec des statistiques. En début de partie, les utilisateurs recoivent un deck de 5 cartes aléatoires, puis se combattent à tour de rôle avec leur carte et leur statistiques appartenantes. Les deux joueurs joueront donc en local.
 Les utilisateurs pourront aussi accéder à leur profil avec leur ranking, statistiques de parties, et pourront accéder également à leur vraies statistiques sur le jeu officiel Overwatch et ainsi aux profils des autres joueurs.
+A chaque partie gagnée, le joueur gagne des points, et grâce à ses points, il pourra s'acheter des cartes et des skins de cartes
 
 - Fonctionnalités : <br />
 &nbsp; &nbsp; • Menu <br />
@@ -13,6 +14,7 @@ Les utilisateurs pourront aussi accéder à leur profil avec leur ranking, stati
 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;• "Moteur de jeu" pour le jeu de carte <br />
 &nbsp; &nbsp;• Accès à son profil et au profil des autres joueurs avec leurs statistiques Overwatch <br />
 &nbsp; &nbsp;• Accès à son profil et au profil des autres joueurs avec leurs statistiques Overwatch Card Master <br />
+&nbsp; &nbsp;• Boutique pour s'acheter cartes et skins <br />
 
 
 - Créateurs : <br />
