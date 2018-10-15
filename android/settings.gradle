@@ -1,0 +1,3 @@
+rootProject.name = 'OverwatchCardMaster'
+
+include ':app'
