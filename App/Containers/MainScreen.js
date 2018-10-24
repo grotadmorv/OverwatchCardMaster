@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 
-import { View, Text } from 'react-native'
-import { Images } from '../Themes'
-
-import { Animatable } from '../Themes'
+import { View } from 'react-native'
+import { Images, Animatable } from '../Themes'
 import { Button } from 'react-native-elements'
 
 import styles from './Styles/MainScreenStyle'
 
-class Main extends Component {
+class MainScreen extends Component {
 
     render () {
         return (
@@ -45,4 +43,4 @@ class Main extends Component {
     }
 }
 
-export default Main
+export default MainScreen
