@@ -9,11 +9,7 @@
   "dependencies": {
     "react": "16.6.0-alpha.8af6728",
     "react-native": "0.57.3",
-<<<<<<< HEAD
     "react-native-elements": "^0.19.1"
-=======
-    "react-navigation": "^2.18.1"
->>>>>>> 9026c83f1596565adc97860e780d18c60e7cfc8d
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
