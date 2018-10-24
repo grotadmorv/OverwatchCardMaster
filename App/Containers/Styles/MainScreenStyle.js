@@ -9,7 +9,8 @@ export default StyleSheet.create({
     logo: {
         height: Metrics.images.logo,
         width: Metrics.images.logo,
-        resizeMode: 'contain'
+        resizeMode: 'contain',
+        top: 100
     },
     welcome: {
         alignItems: 'center',

@@ -4,20 +4,43 @@ import { View, ActivityIndicator } from 'react-native'
 import { Images } from '../Themes'
 import { Animatable } from '../Themes'
 import styles from './Styles/MainScreenStyle'
+import BoardScreen from "./BoardScreen";
 
 class MainScreen extends Component {
 
-    render () {
-        return (
-            <View style={[styles.container]}>
-                <View contentContainerStyle={{justifyContent: 'center'}} style={styles.welcome}>
-                    <Animatable.Image animation='pulse' style={styles.logo} source={Images.clearLogo} />
+    constructor(props) {
+        super(props);
+        this.state = {
+            timePassed: false
+        };
+    }
 
-                    <ActivityIndicator animating={this.state.showProgress} size="large" color="#0000ff" />
+    componentDidMount() {
+        setTimeout( () => {
+            this.setTimePassed();
+        }, 7000);
+    }
+
+    setTimePassed() {
+        this.setState({timePassed: true});
+    }
+
+    render () {
+        if (this.state.timePassed) {
+            return <BoardScreen />;
+        } else {
+            return (
+                <View style={[styles.container]}>
+                    <View contentContainerStyle={{justifyContent: 'center'}} style={styles.welcome}>
+                        <Animatable.Image animation='pulse' style={styles.logo} source={Images.clearLogo}/>
+
+                        <ActivityIndicator size="large" color="#0000ff"/>
+                    </View>
                 </View>
-            </View>
-        )
+            )
+        }
     }
 }
+
 
 export default MainScreen
