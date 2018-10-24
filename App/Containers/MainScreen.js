@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
-import { View } from 'react-native'
-import { Images, Animatable } from '../Themes'
-import { Button } from 'react-native-elements'
-
+import { View, ActivityIndicator } from 'react-native'
+import { Images } from '../Themes'
+import { Animatable } from '../Themes'
 import styles from './Styles/MainScreenStyle'
 
 class MainScreen extends Component {
@@ -13,30 +12,8 @@ class MainScreen extends Component {
             <View style={[styles.container]}>
                 <View contentContainerStyle={{justifyContent: 'center'}} style={styles.welcome}>
                     <Animatable.Image animation='pulse' style={styles.logo} source={Images.clearLogo} />
-                </View>
-                <View contentContainerStyle={{justifyContent: 'center'}} style={styles.actions}>
-                    <View style={styles.action}>
-                        <Button
-                            large
-                            color={'#000'}
-                            backgroundColor={'#FFFFFF'}
-                            borderRadius={5}
-                            icon={{name: 'login', type: 'entypo', backgroundColor: styles.button, color: '#000' }}
-                            title="S'IDENTIFIER"
-                            onPress={() => this.props.navigation.navigate('Login')}
-                        />
-                    </View>
-                    <View style={styles.action}>
-                        <Button
-                            large
-                            color={'#000'}
-                            backgroundColor={'#FFFFFF'}
-                            borderRadius={5}
-                            icon={{name: 'text-document', type: 'entypo', color: '#000'}}
-                            title="S'INSCRIRE"
-                            onPress={() => this.props.navigation.navigate('Register')}
-                        />
-                    </View>
+
+                    <ActivityIndicator animating={this.state.showProgress} size="large" color="#0000ff" />
                 </View>
             </View>
         )

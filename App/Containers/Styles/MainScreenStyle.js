@@ -15,7 +15,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         flex: 7,
         padding: 5,
-        backgroundColor: Colors.background,
+        backgroundColor: Colors.snow,
     },
     line: {
         ...Fonts.style.h5,
