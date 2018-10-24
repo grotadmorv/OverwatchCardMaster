@@ -1,3 +1,5 @@
+// @flow
+
 import { colors as Colors, set as ColorSet } from './Colors'
 import Fonts from './Fonts'
 import Metrics from './Metrics'
