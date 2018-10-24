@@ -18,7 +18,7 @@ class MainScreen extends Component {
     componentDidMount() {
         setTimeout( () => {
             this.setTimePassed();
-        }, 7000);
+        }, 2000);
     }
 
     setTimePassed() {
@@ -34,7 +34,7 @@ class MainScreen extends Component {
                     <View contentContainerStyle={{justifyContent: 'center'}} style={styles.welcome}>
                         <Animatable.Image animation='pulse' style={styles.logo} source={Images.clearLogo}/>
 
-                        <ActivityIndicator size="large" color="#0000ff"/>
+                        <ActivityIndicator style={{top: 100}}size="large" color="#0000ff"/>
                     </View>
                 </View>
             )
