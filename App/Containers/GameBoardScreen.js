@@ -15,29 +15,31 @@ class gameBoardScreen extends Component {
         
     }
 
-    componentWillMount(){
-
+    componentDidMount(){
+        console.log(this.state.player_one_heroes);
     }
 
-    shuffleHeroes(){
+    componentWillMount(){
+        obj_hero = []
         for(let i = 0 ; i < 4 ; i++){
-            console.log("here")
             let rand = Math.floor(Math.random() * 19) + 0 ;
             let hero = data[rand];
-            this.setState({
-                player_one_heroes: [...this.state.player_one_heroes, hero]
-              })
+            obj_hero.push(hero)
         }
+        console.log(obj_hero)
+        this.setState({
+            player_one_heroes: [...this.state.player_one_heroes, obj_hero]
+          })
     }
 
     render() {
         return (
             <View style={styles.container}>
                 <View style={styles.imagesWrapperPlayerOne}>
-                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
-                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
-                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
-                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
+                    <Image style={styles.imagePlayerOne} source={require('../Themes/Images/Heroes/symmetra.png')}/>
+                    <Image style={styles.imagePlayerOne} source={require('../Themes/Images/Heroes/symmetra.png')}/>
+                    <Image style={styles.imagePlayerOne} source={require('../Themes/Images/Heroes/symmetra.png')}/>
+                    <Image style={styles.imagePlayerOne} source={require('../Themes/Images/Heroes/symmetra.png')}/>
                 </View>
 
                 <View style={styles.imagesWrapperPlayerTwo}>
