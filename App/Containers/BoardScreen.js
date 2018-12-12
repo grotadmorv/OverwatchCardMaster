@@ -22,14 +22,14 @@ class BoardScreen extends Component {
         return (
             <View>
                 <ImageBackground
-                    source={require('../Themes/Images/tracer.png')}
+                    source={require('../Themes/Images/background.png')}
                     style={{width: '100%', height: '100%'}}
                 >
                 <View style={styles.container}>
                     <FlatList
                         data={[
                             {key: 'Jouer', url: 'gameBoard'},
-                            {key: 'Mon profile',  url: 'myProfil'},
+                            {key: 'Mon profil',  url: 'myProfil'},
                             {key: 'Profile Overwatch', url: 'profil'},
                             {key: 'Boutique', url: 'shop'},
                         ]}
