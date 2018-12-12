@@ -1,100 +1,120 @@
 {
-    "tracer": {
+    "0": {
+        "name": "tracer",
         "hp": 3,
         "attack": 4,
         "critical_hit": 4
     },
-    "winston": {
+    "1": {
+        "name": "winston",
         "hp": 8,
         "attack": 3,
         "critical_hit": 8
     },
-    "pharah": {
+    "2": {
+        "name" : "pharah",
         "hp": 4,
         "attack": 6,
         "critical_hit": 5
     },
-    "reinhardt": {
+    "3": {
+        "name" : "reinhardt",
         "hp": 10,
         "attack": 10,
         "critical_hit": 10
     },
-    "symmetra": {
+    "4": {
+        "name" : "symmetra",
         "hp": 4,
         "attack": 3,
         "critical_hit": 6
     },
-    "reaper": {
+    "5": {
+        "name" : "reaper",
         "hp": 4,
         "attack": 4,
         "critical_hit": 6
     },
-    "mccree": {
+    "6": {
+        "name": "mccree",
         "hp": 7,
         "attack": 7,
         "critical_hit": 7
     },
-    "mercy": {
+    "7": {
+        "name" : "mercy",
         "hp": 3,
         "attack": 1,
         "critical_hit": 8
     },
-    "mei": {
+    "8": {
+        "name" : "mei",
         "hp": 4,
         "attack": 2,
         "critical_hit": 3
     },
-    "roadhog": {
+    "9": {
+        "name" : "roadhog",
         "hp": 12,
         "attack": 6,
         "critical_hit": 9
     },
-    "junkrat": {
+    "10": {
+        "name": "junkrat",
         "hp": 3,
         "attack": 3,
         "critical_hit": 5
     },
-    "hanzo": {
+    "11": {
+        "name": "hanzo",
         "hp": 5,
         "attack": 5,
         "critical_hit": 5
     },
-    "window": {
+    "12": {
+        "name": "window",
         "hp": 1,
         "attack": 10,
         "critical_hit": 2
     },
-    "zenyatta": {
+    "13": {
+        "name" : "zenyatta",
         "hp": 4,
         "attack": 3,
         "critical_hit": 4
     },
-    "bastion": {
+    "14": {
+        "name" : "bastion",
         "hp": 8,
         "attack": 2,
         "critical_hit": 6
     },
-    "zarya": {
+    "15": {
+        "name" : "zarya",
         "hp": 6,
         "attack": 4,
         "critical_hit": 4
     },
-    "lucio": {
+    "16": {
+        "name" : "lucio",
         "hp": 5,
         "attack": 3,
         "critical_hit": 5
     },
-    "dva": {
+    "17": {
+        "name" : "dva",
         "hp": 6,
         "attack": 6,
         "critical_hit": 6
     },
-    "soldier_76": {
+    "18": {
+        "name" : "soldier_76",
         "hp": 6,
         "attack": 7,
         "critical_hit": 7
     },
-    "genji": {
+    "19": {
+        "name" : "genji",
         "hp": 5,
         "attack": 8,
         "critical_hit": 7

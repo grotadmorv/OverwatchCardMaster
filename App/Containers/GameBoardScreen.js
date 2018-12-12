@@ -1,24 +1,50 @@
 import React, { Component } from 'react';
 
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, Button } from 'react-native'
+
+import data from './heroes.json'
 
 class gameBoardScreen extends Component {
+
+    constructor(){
+        super()
+        this.state = {
+            player_one_heroes: [],
+            player_two_heroes: []
+        }
+        
+    }
+
+    componentWillMount(){
+
+    }
+
+    shuffleHeroes(){
+        for(let i = 0 ; i < 4 ; i++){
+            console.log("here")
+            let rand = Math.floor(Math.random() * 19) + 0 ;
+            let hero = data[rand];
+            this.setState({
+                player_one_heroes: [...this.state.player_one_heroes, hero]
+              })
+        }
+    }
 
     render() {
         return (
             <View style={styles.container}>
                 <View style={styles.imagesWrapperPlayerOne}>
-                    <Image style={styles.imagePlayerOne} source={require('../Themes/Images/symmetra.png')}/>
-                    <Image style={styles.imagePlayerOne} source={require('../Themes/Images/symmetra.png')}/>
-                    <Image style={styles.imagePlayerOne} source={require('../Themes/Images/symmetra.png')}/>
-                    <Image style={styles.imagePlayerOne} source={require('../Themes/Images/symmetra.png')}/>
+                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
+                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
+                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
+                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
                 </View>
 
                 <View style={styles.imagesWrapperPlayerTwo}>
-                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/symmetra.png')}/>
-                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/symmetra.png')}/>
-                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/symmetra.png')}/>
-                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/symmetra.png')}/>
+                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
+                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
+                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
+                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
                 </View>
             </View>
         )
