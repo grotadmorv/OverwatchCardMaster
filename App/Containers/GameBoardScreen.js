@@ -16,37 +16,47 @@ class gameBoardScreen extends Component {
     }
 
     componentDidMount(){
-        console.log(this.state.player_one_heroes);
+        // console.log(this.state.player_one_heroes);
+        // console.log(this.state.player_two_heroes);
     }
 
     componentWillMount(){
-        obj_hero = []
+        obj_hero_one = []
+        obj_hero_two = []
         for(let i = 0 ; i < 4 ; i++){
-            let rand = Math.floor(Math.random() * 19) + 0 ;
-            let hero = data[rand];
-            obj_hero.push(hero)
+            let rand_one = Math.floor(Math.random() * 19) + 0 ;
+            let rand_two = Math.floor(Math.random() * 19) + 0 ;
+            let hero_one = data[rand_one];
+            let hero_two = data[rand_two];
+            obj_hero_one.push(hero_one);
+            obj_hero_two.push(hero_two);
         }
-        console.log(obj_hero)
         this.setState({
-            player_one_heroes: [...this.state.player_one_heroes, obj_hero]
-          })
+            player_one_heroes: [...this.state.player_one_heroes, obj_hero_one]
+        })
+        this.setState({
+            player_two_heroes: [...this.state.player_two_heroes, obj_hero_two]
+        })
     }
 
     render() {
         return (
             <View style={styles.container}>
                 <View style={styles.imagesWrapperPlayerOne}>
-                    <Image style={styles.imagePlayerOne} source={require('../Themes/Images/Heroes/symmetra.png')}/>
-                    <Image style={styles.imagePlayerOne} source={require('../Themes/Images/Heroes/symmetra.png')}/>
-                    <Image style={styles.imagePlayerOne} source={require('../Themes/Images/Heroes/symmetra.png')}/>
-                    <Image style={styles.imagePlayerOne} source={require('../Themes/Images/Heroes/symmetra.png')}/>
+                {
+                    this.state.player_one_heroes[0].map(function(index){                        
+                        <Image style={styles.imagePlayerOne} source={index.image} />
+                        // console.log(index)
+                    })
+                }
                 </View>
 
                 <View style={styles.imagesWrapperPlayerTwo}>
-                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
-                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
-                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
-                    <Image style={styles.imagePlayerTwo} source={require('../Themes/Images/Heroes/symmetra.png')}/>
+                {
+                    this.state.player_two_heroes.map(function(index){
+                        <Image style={styles.imagePlayertwo} source={{ uri: index.image}} />
+                    })
+                }
                 </View>
             </View>
         )
