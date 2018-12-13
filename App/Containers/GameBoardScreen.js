@@ -6,17 +6,19 @@ import data from './heroes.json'
 
 class gameBoardScreen extends Component {
 
-    constructor(){
-        super()
+    constructor(props){
+        super(props);
         this.state = {
             player_one_heroes: [],
-            player_two_heroes: []
+            player_two_heroes: [],
+            player_one: {hp : 50},
+            player_two: {hp: 50},
+            turn: 1
         }
-        
     }
 
     componentDidMount(){
-        // console.log(this.state.player_one_heroes);
+        // console.warn(this.state.player_one.hp);
     }
 
     componentWillMount(){
@@ -38,25 +40,68 @@ class gameBoardScreen extends Component {
         })
     }
 
+    onAttack(turn, index){
+        if(this.state.turn == turn){
+            rand = Math.floor(Math.random() * 10) + 1;
+            if(index.critical_hit - 1 >= rand ){
+                critical = 1 + (index.critical_hit/100);
+                attack = Math.ceil(index.attack * critical)
+
+                // todo animation hit
+            }else{
+                attack = index.attack
+            }
+
+            // todo animation attack
+            if(this.state.turn == 1){
+                if( this.state.player_two.hp - attack <= 0 ){
+                    hp = 0
+                    this.onWin(1)
+                }else{
+                    hp = this.state.player_two.hp - attack
+                }
+                this.setState({player_two: {hp: hp},  turn: 2})
+            }else{
+                if(this.state.player_one.hp - attack <= 0){
+                    hp = 0
+                    this.onWin(2)
+                }else{
+                    hp = this.state.player_one.hp - attack
+                }
+                this.setState({player_one: {hp: (this.state.player_one.hp - attack)},  turn: 1}) 
+            }
+        }
+    }
+
+    onWin(winner){
+        // todo animation win
+        console.warn(winner)
+    }
+
     render() {
         return (
             <View style={styles.container}>
                 <View style={styles.imagesWrapperPlayerOne}>
                     {
-                        this.state.player_one_heroes[0].map(function(index, key) {
+                        this.state.player_one_heroes[0].map((index, key) => {
+
                             return(
-                                <TouchableOpacity onPress={() => console.warn(key) }  style={styles.containerOne}  key={{key}}>
+                                <TouchableOpacity onPress={() => this.onAttack(2,index) }  style={styles.containerOne}  key={{key}}>
                                     <Image style={styles.imagePlayerOne} source={{uri: index.image}}/>
                                 </TouchableOpacity>
                         )})
                     }
                 </View>
-
+                    <View>
+                        <Text style={{marginLeft:100}} >
+                            {this.state.turn} {this.state.player_one.hp} {this.state.player_two.hp}
+                        </Text>
+                    </View>
                 <View style={styles.imagesWrapperPlayerTwo}>
                 {
-                        this.state.player_two_heroes[0].map(function(index, key) {
+                        this.state.player_two_heroes[0].map((index, key) => {
                             return(
-                            <TouchableOpacity style={styles.containerTwo}  key={{key}}>
+                            <TouchableOpacity onPress={() => this.onAttack(1,index)} style={styles.containerTwo}  key={{key}}>
                                 <Image key={{key}} style={styles.imagePlayerTwo} source={{uri: index.image}}/>
                             </TouchableOpacity>
                         )})
