@@ -30,7 +30,7 @@ class BoardScreen extends Component {
                         data={[
                             {key: 'Jouer', url: 'gameBoard'},
                             {key: 'Mon profil',  url: 'myProfil'},
-                            {key: 'Profile Overwatch', url: 'profil'},
+                            {key: 'Profil Overwatch', url: 'myProfilOverwatch'},
                             {key: 'Boutique', url: 'shop'},
                         ]}
                         renderItem={({item}) => <Text onPress={() => this._navigateTo(item.url)} style={styles.item}>{item.key}</Text>}
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     },
     item: {
         color: 'white',
-        padding: 10,
+        padding: 8,
         fontSize: 50,
         textShadowColor: '#f3c026',
         textShadowOffset: {width: 0, height: 0},
