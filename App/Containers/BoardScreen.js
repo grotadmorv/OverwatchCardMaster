@@ -45,12 +45,16 @@ class BoardScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 22
+        paddingTop: 22,
     },
     item: {
+        color: 'white',
         padding: 10,
-        fontSize: 18,
-        height: 44,
+        fontSize: 50,
+        textShadowColor: '#f3c026',
+        textShadowOffset: {width: 0, height: 0},
+        textShadowRadius: 10,
+        fontFamily: 'big_noodle_titling_oblique'
     },
 })
 
