@@ -28,12 +28,17 @@ class BoardScreen extends Component {
                 <View style={styles.container}>
                     <FlatList
                         data={[
-                            {key: 'Jouer', url: 'gameBoard'},
+                            {key: 'Jouer', url: 'gameBoard'}
+                        ]}
+                        renderItem={({item}) => <Text onPress={() => this._navigateTo(item.url)} style={styles.item}>{item.key}</Text>}
+                    />
+                    <FlatList
+                        data={[
                             {key: 'Mon profil',  url: 'myProfil'},
                             {key: 'Profil Overwatch', url: 'myProfilOverwatch'},
                             {key: 'Boutique', url: 'shop'},
                         ]}
-                        renderItem={({item}) => <Text onPress={() => this._navigateTo(item.url)} style={styles.item}>{item.key}</Text>}
+                        renderItem={({item}) => <Text onPress={() => this._navigateTo(item.url)} style={styles.itemSecond}>{item.key}</Text>}
                     />
                 </View>
                 </ImageBackground>
@@ -44,18 +49,27 @@ class BoardScreen extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // flex: 1,
         paddingTop: 22,
     },
     item: {
-        color: 'white',
+        color: '#f3c026',
         padding: 8,
         fontSize: 50,
-        textShadowColor: '#f3c026',
+        textShadowColor: '#bb7e29',
         textShadowOffset: {width: 0, height: 0},
         textShadowRadius: 10,
         fontFamily: 'big_noodle_titling_oblique'
     },
+    itemSecond: {
+        fontFamily: 'futura',
+        color: 'white',
+        fontSize: 25,
+        padding: 8,
+        textShadowColor: '#336cec',
+        textShadowOffset: {width: 0, height: 0},
+        textShadowRadius: 7,
+    }
 })
 
 
