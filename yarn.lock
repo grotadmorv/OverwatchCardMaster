@@ -4303,6 +4303,10 @@ react-native-screens@^1.0.0-alpha.11:
   version "1.0.0-alpha.15"
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.15.tgz#5b5a0041310b46f12048fda1908d52e7290ec18f"
 
+react-native-storage@^1.0.0-beta.0:
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/react-native-storage/-/react-native-storage-1.0.0-beta.1.tgz#12acc0450e63a65ac95430196c04270edcf7b0be"
+
 react-native-tab-view@^0.0.77:
   version "0.0.77"
   resolved "http://registry.npmjs.org/react-native-tab-view/-/react-native-tab-view-0.0.77.tgz#11ceb8e7c23100d07e628dc151b57797524d00d4"
