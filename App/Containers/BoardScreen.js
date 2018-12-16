@@ -51,6 +51,9 @@ const styles = StyleSheet.create({
     container: {
         // flex: 1,
         paddingTop: 22,
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        textAlign: 'center'
     },
     item: {
         color: '#f3c026',
@@ -59,7 +62,10 @@ const styles = StyleSheet.create({
         textShadowColor: '#bb7e29',
         textShadowOffset: {width: 0, height: 0},
         textShadowRadius: 10,
-        fontFamily: 'big_noodle_titling_oblique'
+        fontFamily: 'big_noodle_titling_oblique',
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        textAlign: 'center'
     },
     itemSecond: {
         fontFamily: 'futura',
@@ -69,6 +75,9 @@ const styles = StyleSheet.create({
         textShadowColor: '#336cec',
         textShadowOffset: {width: 0, height: 0},
         textShadowRadius: 7,
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        textAlign: 'center'
     }
 })
 
