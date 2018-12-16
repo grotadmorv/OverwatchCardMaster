@@ -101,14 +101,14 @@ class ProfilOverwatchScreen extends Component {
                         </Text>
                     </View>
                     <View style={{ alignItems: 'center', justifyContent: 'center' }} >
-                        <Image style={styles.icon} source={{uri: typeof this.state.stats[0] !== "undefined" ? this.state.stats[0].icon : "" }} />
+                        <Image style={styles.icon} source={{uri: typeof this.state.stats[0] !== "undefined" ? this.state.stats[0].icon : "https://www.ikeraguirre.com/wp-content/uploads/sites/2/2016/10/image-transparente.png" }} />
                     </View>
                     <View style={styles.centerView} >
                         <View>
                             <Text style={styles.ratingText} >{typeof this.state.stats[0] !== "undefined" ? this.state.stats[0].rating : "" }</Text>
                         </View>
                         <View>
-                            <Image style={styles.ratingIcon} source={{uri: typeof this.state.stats[0] !== "undefined" ? this.state.stats[0].ratingIcon : "" }} />
+                            <Image style={styles.ratingIcon} source={{uri: typeof this.state.stats[0] !== "undefined" ? this.state.stats[0].ratingIcon : "https://www.ikeraguirre.com/wp-content/uploads/sites/2/2016/10/image-transparente.png" }} />
                         </View>
                     </View>
                     <View style={{marginTop: 30}} >

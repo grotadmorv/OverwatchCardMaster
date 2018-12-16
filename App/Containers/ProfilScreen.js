@@ -15,8 +15,12 @@ class ProfilScreen extends Component {
 
     render () {
         return (
-            <View>
-                <Text>Han han</Text>
+            <View style={styles.container} >
+                <ImageBackground
+                    source={require('../Themes/Images/pattern.png')}
+                    style={{width: '100%', height: '100%'}}
+                >
+                </ImageBackground>
             </View>
         )
     }
@@ -24,7 +28,7 @@ class ProfilScreen extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // flex: 1,
     }
 })
 

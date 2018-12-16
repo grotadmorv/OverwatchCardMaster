@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { View, Text, Image, Button, TouchableOpacity } from 'react-native'
+import { View, Text, Image, Button, TouchableOpacity, AsyncStorage  } from 'react-native'
 
 import data from './heroes.json'
 
@@ -75,7 +75,10 @@ class gameBoardScreen extends Component {
 
     onWin(winner){
         // todo animation win
-        console.warn(winner)
+        AsyncStorage.removeItem('gameWon');
+        AsyncStorage.removeItem('gamePlayed');
+        if(winner == 1){
+        }
     }
 
     render() {
@@ -86,7 +89,7 @@ class gameBoardScreen extends Component {
                         this.state.player_one_heroes[0].map((index, key) => {
 
                             return(
-                                <TouchableOpacity onPress={() => this.onAttack(2,index) }  style={styles.containerOne}  key={{key}}>
+                                <TouchableOpacity onPress={() => this.onAttack(1,index) }  style={styles.containerOne}  key={{key}}>
                                     <Image style={styles.imagePlayerOne} source={{uri: index.image}}/>
                                 </TouchableOpacity>
                         )})
@@ -101,7 +104,7 @@ class gameBoardScreen extends Component {
                 {
                         this.state.player_two_heroes[0].map((index, key) => {
                             return(
-                            <TouchableOpacity onPress={() => this.onAttack(1,index)} style={styles.containerTwo}  key={{key}}>
+                            <TouchableOpacity onPress={() => this.onAttack(2,index)} style={styles.containerTwo}  key={{key}}>
                                 <Image key={{key}} style={styles.imagePlayerTwo} source={{uri: index.image}}/>
                             </TouchableOpacity>
                         )})
