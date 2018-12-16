@@ -34,9 +34,9 @@ class BoardScreen extends Component {
                     />
                     <FlatList
                         data={[
-                            {key: 'Mon profil',  url: 'myProfil'},
-                            {key: 'Profil Overwatch', url: 'myProfilOverwatch'},
-                            {key: 'Boutique', url: 'shop'},
+                            {key: 'MON PROFIL',  url: 'myProfil'},
+                            {key: 'PROFIL OVERWATCH', url: 'myProfilOverwatch'},
+                            {key: 'BOUTIQUE', url: 'shop'},
                         ]}
                         renderItem={({item}) => <Text onPress={() => this._navigateTo(item.url)} style={styles.itemSecond}>{item.key}</Text>}
                     />

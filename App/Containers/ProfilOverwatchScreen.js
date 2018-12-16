@@ -26,10 +26,10 @@ class ProfilOverwatchScreen extends Component {
 
             if (request.status === 200) {
                 let response = JSON.parse(request.responseText);
+                this.setState({stats: []})
                 this.setState({
                     stats: [...this.state.stats, response]
                 })
-
             } else {
                 console.warn('error');
             }
@@ -49,12 +49,12 @@ class ProfilOverwatchScreen extends Component {
                 >
                 <View>
                     <View>
-                        <Text style={styles.centerText} >Platform</Text>
+                        <Text style={styles.centerText} >PLATFORM</Text>
                     </View>
                     <View>
                         <Picker
                             selectedValue={this.state.plateform}
-                            style={{ height: 50, alignSelf: 'stretch' }}
+                            style={{ height: 50, alignSelf: 'stretch', marginLeft: 50, marginRight: 50 }}
                             onValueChange={(itemValue) => this.setState({ plateform: itemValue })}>
                             <Picker.Item label="PC" value="pc" />
                             <Picker.Item label="Xbox" value="xbox" />
@@ -64,12 +64,12 @@ class ProfilOverwatchScreen extends Component {
                 </View>
                 <View>
                     <View>
-                        <Text style={styles.centerText} >Region</Text>
+                        <Text style={styles.centerText} >REGION</Text>
                     </View>
                     <View>
                         <Picker
                             selectedValue={this.state.region}
-                            style={{ height: 50, alignSelf: 'stretch' }}
+                            style={{ height: 50, alignSelf: 'stretch', marginLeft: 50, marginRight: 50 }}
                             onValueChange={(itemValue) => this.setState({ region: itemValue })}>
                             <Picker.Item label="Europe" value="eu" />
                             <Picker.Item label="Asia" value="asia" />
@@ -79,7 +79,7 @@ class ProfilOverwatchScreen extends Component {
                 </View>
                 <View>
                     <View>
-                        <Text style={styles.centerText}>Battletag</Text>
+                        <Text style={styles.centerText}>BATTLETAG</Text>
                     </View>
                     <TextInput
                         style={{ height: 50, alignSelf: 'stretch', textAlign: 'center', fontFamily: 'futura', color: 'white' }}
@@ -96,7 +96,7 @@ class ProfilOverwatchScreen extends Component {
 
                 <View>
                     <View>
-                        <Text style={styles.centerText}>
+                        <Text style={styles.centerTextName}>
                             {typeof this.state.stats[0] !== "undefined" ? this.state.stats[0].name : "" }
                         </Text>
                     </View>
@@ -105,7 +105,7 @@ class ProfilOverwatchScreen extends Component {
                     </View>
                     <View style={styles.centerView} >
                         <View>
-                            <Text style={{color:'white'}} >{typeof this.state.stats[0] !== "undefined" ? this.state.stats[0].rating : "" }</Text>
+                            <Text style={styles.ratingText} >{typeof this.state.stats[0] !== "undefined" ? this.state.stats[0].rating : "" }</Text>
                         </View>
                         <View>
                             <Image style={styles.ratingIcon} source={{uri: typeof this.state.stats[0] !== "undefined" ? this.state.stats[0].ratingIcon : "" }} />
@@ -149,6 +149,28 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: 'futura',
         color: 'white',
+        fontSize: 20,
+        textShadowColor: '#336cec',
+        textShadowOffset: {width: 0, height: 0},
+        textShadowRadius: 7,
+        margin: 5
+    },
+    ratingText: {
+        textAlign: 'center',
+        fontFamily: 'futura',
+        color: 'white',
+        textShadowColor: '#336cec',
+        textShadowOffset: {width: 0, height: 0},
+        textShadowRadius: 7,
+    },
+    centerTextName: {
+        textAlign: 'center',
+        fontFamily: 'futura',
+        color: 'white',
+        fontSize: 25,
+        textShadowColor: '#336cec',
+        textShadowOffset: {width: 0, height: 0},
+        textShadowRadius: 7,
         margin: 5
     },
     icon: {
