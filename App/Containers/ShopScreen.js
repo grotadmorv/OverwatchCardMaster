@@ -246,6 +246,12 @@ const styles = StyleSheet.create({
 
 const list_arena = [
     {
+        name: 'Bastion Arena',
+        avatar_url: "http://image.noelshack.com/fichiers/2018/51/1/1545083620-arena-three.png",
+        subtitle: "Bastion Arena",
+        price: 5000
+    },
+    {
         name: 'Ice Arena',
         avatar_url: "http://image.noelshack.com/fichiers/2018/51/1/1545081488-arena-one.png",
         subtitle: "Ice Arena",
