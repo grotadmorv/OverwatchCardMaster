@@ -4,7 +4,9 @@ import { View, Text, StyleSheet, AsyncStorage, ImageBackground, ScrollView, Touc
 
 import Storage from 'react-native-storage';
 
-import { ListItem, Avatar, Button } from 'react-native-elements'
+import { ListItem, Avatar } from 'react-native-elements';
+
+import RNRestart from 'react-native-restart';
 
 const storage = new Storage({
     size: 2000,
@@ -76,6 +78,7 @@ class ShopScreen extends Component {
                     })
                 }
             });
+            RNRestart.Restart();
     }
 
     checkPrice(priceBg, actualMoney) {
