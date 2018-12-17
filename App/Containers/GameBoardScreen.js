@@ -100,9 +100,11 @@ class gameBoardScreen extends Component {
             .then(ret => {
                 let total_won_played = ret.gameWon;
                 let total_game_played = ret.gamePlayed += 1
+                let total_credit_played = ret.gameCredit;
                 
                 if(winner){
                     total_won_played += 1
+                    total_credit_played += 200
                 }
 
                 storage.save({
@@ -110,7 +112,8 @@ class gameBoardScreen extends Component {
                     data: {
                         gamePlayed: total_game_played,
                         gameWon: total_won_played,
-                        gameLastHeroes: this.state.player_one_heroes[0]
+                        gameLastHeroes: this.state.player_one_heroes[0],
+                        gameCredit: total_credit_played
                     },
 
                     expires: null
@@ -118,8 +121,10 @@ class gameBoardScreen extends Component {
             })
             .catch(err => {
                 let winnerNum = 0
+                let creditNum = 0;
                 if (winner){
                     winnerNum = 1;
+                    creditNum = 200;
                 }
                 if (err.name == 'NotFoundError') {
                     storage.save({
@@ -127,7 +132,8 @@ class gameBoardScreen extends Component {
                         data: {
                             gamePlayed: 1,
                             gameWon: winnerNum,
-                            gameLastHeroes: this.state.player_one_heroes[0]
+                            gameLastHeroes: this.state.player_one_heroes[0],
+                            gameCredit: creditNum
                         },
 
                         expires: null

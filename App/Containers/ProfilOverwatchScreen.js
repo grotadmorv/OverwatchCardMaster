@@ -11,7 +11,8 @@ class ProfilOverwatchScreen extends Component {
             plateform: "pc",
             region: "eu",
             battletag: "",
-            stats: []
+            stats: [],
+            error : false
         };
 
     }
@@ -26,12 +27,16 @@ class ProfilOverwatchScreen extends Component {
 
             if (request.status === 200) {
                 let response = JSON.parse(request.responseText);
-                this.setState({stats: []})
-                this.setState({
-                    stats: [...this.state.stats, response]
-                })
+                if(response.error == "Player not found"){
+                    this.setState({error: true})
+                }else{
+                    this.setState({stats: []})
+                    this.setState({
+                        stats: [...this.state.stats, response]
+                    })
+                }
             } else {
-                console.warn('error');
+                this.setState({error: true})
             }
         };
 
@@ -95,6 +100,11 @@ class ProfilOverwatchScreen extends Component {
                 </View>
 
                 <View>
+                    <View>
+                        <Text style={styles.centerView}>
+                            {this.state.error ? "Player not found !" : ""}
+                        </Text>
+                    </View>
                     <View>
                         <Text style={styles.centerTextName}>
                             {typeof this.state.stats[0] !== "undefined" ? this.state.stats[0].name : "" }
