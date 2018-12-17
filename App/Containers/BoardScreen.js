@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
 
-import { View, Text, StyleSheet, Image, ImageBackground, FlatList} from 'react-native'
+import { View, Text, StyleSheet, Image, ImageBackground, FlatList, AsyncStorage} from 'react-native'
 import { withNavigation } from 'react-navigation'
+
+import Storage from 'react-native-storage';
+
+const storage = new Storage({
+    size: 2000,
+
+    storageBackend: AsyncStorage,
+
+    defaultExpires: null,
+
+    enableCache: true,
+
+});
+
+
 
 class BoardScreen extends Component {
 
@@ -9,6 +24,7 @@ class BoardScreen extends Component {
         super(props);
 
         this.state = {
+            data: []
         };
 
         this._navigateTo = this._navigateTo.bind(this);
@@ -18,11 +34,27 @@ class BoardScreen extends Component {
         this.props.navigation.navigate(pageName)
     }
 
+    componentWillMount() {
+        storage
+            .load({
+                key: 'dataBackground',
+                autoSync: true,
+                syncInBackground: true,
+            })
+            .then(ret => {
+                this.setState({data: ret})
+            }).catch(err => {
+                if (err.name == 'NotFoundError') {
+                    this.setState({error: true})
+                }
+            });
+        }
+
     render () {
         return (
             <View>
                 <ImageBackground
-                    source={require('../Themes/Images/background.png')}
+                    source={this.state.data.background ? {uri: this.state.data.background} : require('../Themes/Images/background.png')}
                     style={{width: '100%', height: '100%'}}
                 >
                 <View style={styles.container}>

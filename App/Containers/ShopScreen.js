@@ -1,8 +1,34 @@
 import React, { Component } from 'react';
 
-import { View, Text, StyleSheet, Image, ImageBackground, FlatList} from 'react-native'
+import { View, Text, StyleSheet, AsyncStorage} from 'react-native'
 
-import { List, ListItem, Avatar } from 'react-native-elements'
+import Storage from 'react-native-storage';
+
+import { List, ListItem, Avatar, Button } from 'react-native-elements'
+
+const storage = new Storage({
+    size: 2000,
+
+    storageBackend: AsyncStorage,
+
+    defaultExpires: null,
+
+    enableCache: true,
+
+});
+
+const list = [
+    {
+      name: 'Amy Farha',
+      avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+      subtitle: 'Vice President'
+    },
+    {
+      name: 'Chris Jackson',
+      avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      subtitle: 'Vice Chairman'
+    },
+  ]
 
 class ShopScreen extends Component {
 
@@ -10,41 +36,98 @@ class ShopScreen extends Component {
         super();
 
         this.state = {
-            points: 44
+            data: [],
+            price: 250,
+            status: false
         };
-
     }
 
+    componentWillMount() {
+    storage
+        .load({
+            key: 'dataPlayer',
+            autoSync: true,
+            syncInBackground: true,
+        })
+        .then(ret => {
+            this.setState({data: ret})
+        }).catch(err => {
+            if (err.name == 'NotFoundError') {
+                this.setState({error: true})
+            }
+        });
+    }
+
+    _buy(url) {
+        storage.save({
+            key: 'dataBackground',
+            data: {
+                background: url,
+                status: true
+            },
+            expires: null
+        })
+        storage
+        .load({
+            key: 'dataPlayer',
+            autoSync: true,
+            syncInBackground: true,
+        })
+        .then(ret => {
+            storage.save({
+                key: 'dataPlayer',
+                data: {
+                    gamePlayed: ret.gamePlayed,
+                    gameWon: ret.gameWon,
+                    gameLastHeroes: ret.gameLastHeroes,
+                    gameCredit: this.state.data.gameCredit - this.state.price
+                },
+                expires: null
+            })
+            this.setState({status: true})
+        }).catch(err => {
+            if (err.name == 'NotFoundError') {
+                this.setState({error: true})
+            }
+        });
+
+    }
 
     render () {
         return (
             <View style={styles.container} >
-                <Text style={styles.title}>Vos points OW : {this.state.points}</Text>
-                <List>
-                    <ListItem
-                        xlargeAvatar
-                        title={
-                            <Text style={styles.ratingText}>
-                                Wallpeper Tracer mobile
-                            </Text>
-                        }
-                        subtitle={
-                        <View style={styles.subtitleView}>
-                            <Text style={styles.ratingText}>20 points</Text>
-                        </View>
-                        }
-                        avatar={
-                            <Avatar
-                                xlarge
-                                source={require('../Themes/Images/icn.png')}
-                            />
-                        }
-                    />
+                <Text style={styles.title}>Vos points OW : {this.state.data.gameCredit}</Text>
+                <List containerStyle={{marginBottom: 20}}>
+                    {
+                        list.map((l) => (
+                        <ListItem
+                            roundAvatar
+                            key={l.name}
+                            subtitle={
+                                <Text style={styles.ratingText}>
+                                    Wallpeper Tracer mobile
+                                </Text>
+                            }
+                            rightIcon={
+                                    <View style={styles.subtitleView}>
+                                        <Button onPress={(index) => this._buy(l.avatar_url)} title={'Buy ' + this.state.price}/>
+                                    </View>
+                            }
+                            avatar={
+                                <Avatar
+                                    xlarge
+                                    source={{ uri: l.avatar_url}}
+                                />
+                            }
+                        />
+                        ))
+                    }
                 </List>
             </View>
         )
     }
 }
+
 
 styles = StyleSheet.create({
     subtitleView: {
@@ -53,11 +136,11 @@ styles = StyleSheet.create({
     },
     ratingText: {
       marginLeft: 30,
-      color: 'grey'
+      color: 'grey',
     },
     title: {
         textAlign: 'center',
-        top: 10,
+        top: 30,
         fontSize: 26
 
     }
