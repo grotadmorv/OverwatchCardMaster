@@ -109,7 +109,8 @@ const styles = StyleSheet.create({
         textShadowColor: '#336cec',
         textShadowOffset: { width: 0, height: 0 },
         textShadowRadius: 7,
-        margin: 5
+        margin: 5,
+        marginBottom: 50
     },
     centerText: {
         textAlign: 'center',
@@ -119,11 +120,12 @@ const styles = StyleSheet.create({
         textShadowColor: '#336cec',
         textShadowOffset: {width: 0, height: 0},
         textShadowRadius: 7,
-        margin: 5
+        margin: 5,
+        marginBottom: 50
     },
     icon: {
-        width: 50,
-        height: 50
+        width: 80,
+        height: 80
     }
 })
 
