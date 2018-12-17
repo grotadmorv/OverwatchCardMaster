@@ -6,6 +6,7 @@ import BoardScreen from "../Containers/BoardScreen";
 import gameBoardScreen from "../Containers/GameBoardScreen";
 import ProfilScreen from "../Containers/ProfilScreen";
 import ProfilOverwatchScreen from "../Containers/ProfilOverwatchScreen";
+import ShopScreen from "../Containers/ShopScreen";
 
 
 export default MainStack = createStackNavigator({
@@ -23,6 +24,9 @@ export default MainStack = createStackNavigator({
     },
     gameBoard: {
         screen: gameBoardScreen
+    },
+    shop: {
+        screen: ShopScreen,
     }
     }, {
         headerMode: 'none',
