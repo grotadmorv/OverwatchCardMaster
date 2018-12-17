@@ -81,6 +81,37 @@ class ShopScreen extends Component {
             RNRestart.Restart();
     }
 
+    _buyArena(url) {
+        storage
+            .load({
+                key: 'dataArena',
+                autoSync: true,
+                syncInBackground: true,
+            })
+            .then(ret => {
+                storage.save({
+                    key: 'dataArena',
+                    data: {
+                        actualBackgroundArena: url
+                    },
+                    expires: null
+                })
+
+
+            }).catch(err => {
+                if (err.name == 'NotFoundError') {
+                    storage.save({
+                        key: 'dataArena',
+                        data: {
+                            actualBackgroundArena: url
+                        },
+                        expires: null
+                    })
+                }
+            });
+            RNRestart.Restart();
+    }
+
     checkPrice(priceBg, actualMoney) {
         if (priceBg <= actualMoney) {
             return false;
@@ -100,6 +131,9 @@ class ShopScreen extends Component {
                         <View>
                             <Text style={styles.title}>Vos crédits : {this.state.actualCredit}</Text>
                         </View>
+                        <View>
+                            <Text style={styles.title}>Achat Wallpaper</Text>
+                        </View>
                         {
                             list.map((l, index) => {
                                 return (
@@ -115,6 +149,39 @@ class ShopScreen extends Component {
                                             <View style={styles.subtitleView}>
                                                 {
                                                     <TouchableOpacity style={styles.buttonSelect}  onPress={() => this._buy(l.avatar_url)} disabled={this.checkPrice(l.price, this.state.actualCredit)}>
+                                                        <Text style={styles.textButton} >GO</Text>
+                                                    </TouchableOpacity>
+                                                }
+                                            </View>
+                                        }
+                                        avatar={
+                                            <Avatar
+                                                xlarge
+                                                source={{ uri: l.avatar_url }}
+                                            />
+                                        }
+                                    />
+                                )
+                            })
+                        }
+                        <View>
+                            <Text style={styles.title}>Achat Arena</Text>
+                        </View>
+                        {
+                            list_arena.map((l, index) => {
+                                return (
+                                    <ListItem
+                                        roundAvatar
+                                        key={index}
+                                        subtitle={
+                                            <Text style={styles.ratingText}>
+                                                Crédits requis : {l.price}
+                                            </Text>
+                                        }
+                                        rightIcon={
+                                            <View style={styles.subtitleView}>
+                                                {
+                                                    <TouchableOpacity style={styles.buttonSelect}  onPress={() => this._buyArena(l.avatar_url)} disabled={this.checkPrice(l.price, this.state.actualCredit)}>
                                                         <Text style={styles.textButton} >GO</Text>
                                                     </TouchableOpacity>
                                                 }
@@ -176,6 +243,21 @@ const styles = StyleSheet.create({
         fontFamily: 'futura',
     },
 })
+
+const list_arena = [
+    {
+        name: 'Ice Arena',
+        avatar_url: "http://image.noelshack.com/fichiers/2018/51/1/1545081488-arena-one.png",
+        subtitle: "Ice Arena",
+        price: 10000
+    },
+    {
+        name: 'Fire Arena',
+        avatar_url: "http://image.noelshack.com/fichiers/2018/51/1/1545081513-arena-two.png",
+        subtitle: "Fire Arena",
+        price: 10000
+    },
+]
 
 const list = [
     {
