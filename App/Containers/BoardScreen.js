@@ -54,7 +54,7 @@ class BoardScreen extends Component {
         return (
             <View>
                 <ImageBackground
-                    source={this.state.data.background ? {uri: this.state.data.background} : require('../Themes/Images/background.png')}
+                    source={this.state.data.actualBackground ? {uri: this.state.data.actualBackground} : require('../Themes/Images/background.png')}
                     style={{width: '100%', height: '100%'}}
                 >
                 <View style={styles.container}>

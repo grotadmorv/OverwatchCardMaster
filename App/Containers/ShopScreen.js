@@ -17,16 +17,20 @@ const storage = new Storage({
 
 });
 
+global.storage = storage;
+
 const list = [
     {
       name: 'Amy Farha',
       avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-      subtitle: 'Vice President'
+      subtitle: 'Vice President',
+      price: 100
     },
     {
       name: 'Chris Jackson',
       avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-      subtitle: 'Vice Chairman'
+      subtitle: 'Vice Chairman',
+      price: 800
     },
   ]
 
@@ -37,8 +41,8 @@ class ShopScreen extends Component {
 
         this.state = {
             data: [],
-            price: 250,
-            status: false
+            status: false,
+            actualCredit: 0,
         };
     }
 
@@ -51,66 +55,73 @@ class ShopScreen extends Component {
         })
         .then(ret => {
             this.setState({data: ret})
+            this.setState({actualCredit: ret.gameCredit})
         }).catch(err => {
             if (err.name == 'NotFoundError') {
                 this.setState({error: true})
+            }
+        })
+    }
+
+    _buy(url) {
+        storage
+        .load({
+            key: 'dataBackground',
+            autoSync: true,
+            syncInBackground: true,
+        }) 
+        .then(ret => {
+            storage.save({
+                key: 'dataBackground',
+                data: {
+                    actualBackground: url
+                },
+                expires: null
+            })
+
+
+        }).catch(err => {
+            if (err.name == 'NotFoundError') {
+                storage.save({
+                    key: 'dataBackground',
+                    data: {
+                        actualBackground: url
+                    },
+                    expires: null
+                })
             }
         });
     }
 
-    _buy(url) {
-        storage.save({
-            key: 'dataBackground',
-            data: {
-                background: url,
-                status: true
-            },
-            expires: null
-        })
-        storage
-        .load({
-            key: 'dataPlayer',
-            autoSync: true,
-            syncInBackground: true,
-        })
-        .then(ret => {
-            storage.save({
-                key: 'dataPlayer',
-                data: {
-                    gamePlayed: ret.gamePlayed,
-                    gameWon: ret.gameWon,
-                    gameLastHeroes: ret.gameLastHeroes,
-                    gameCredit: this.state.data.gameCredit - this.state.price
-                },
-                expires: null
-            })
-            this.setState({status: true})
-        }).catch(err => {
-            if (err.name == 'NotFoundError') {
-                this.setState({error: true})
-            }
-        });
-
+    checkPrice(priceBg, actualMoney){
+        if(priceBg <= actualMoney){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     render () {
         return (
             <View style={styles.container} >
-                <Text style={styles.title}>Vos points OW : {this.state.data.gameCredit}</Text>
-                <List containerStyle={{marginBottom: 20}}>
+                <Text style={styles.title}>Vos points OW : {this.state.actualCredit}</Text>
                     {
-                        list.map((l) => (
+                        list.map((l, index) => {
+                            return(
                         <ListItem
                             roundAvatar
-                            key={l.name}
+                            key={index}
                             subtitle={
                                 <Text style={styles.ratingText}>
-                                    Wallpeper Tracer mobile
+                                    Crédits requis : {l.price}
                                 </Text>
                             }
                             rightIcon={
                                     <View style={styles.subtitleView}>
-                                        <Button onPress={(index) => this._buy(l.avatar_url)} title={'Buy ' + this.state.price}/>
+                                        {
+                                            <Button style={styles.buttonSelect} onPress={() => this._buy(l.avatar_url)} disabled={this.checkPrice(l.price, this.state.actualCredit)}  
+                                            title={'Go'}/> 
+                                        }  
                                     </View>
                             }
                             avatar={
@@ -120,9 +131,9 @@ class ShopScreen extends Component {
                                 />
                             }
                         />
-                        ))
+                            )
+                        })
                     }
-                </List>
             </View>
         )
     }
@@ -135,7 +146,6 @@ styles = StyleSheet.create({
       paddingTop: 5
     },
     ratingText: {
-      marginLeft: 30,
       color: 'grey',
     },
     title: {
@@ -143,6 +153,9 @@ styles = StyleSheet.create({
         top: 30,
         fontSize: 26
 
+    },
+    buttonSelect: {
+        // width: 50
     }
   })
 
