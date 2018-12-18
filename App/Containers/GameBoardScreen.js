@@ -164,7 +164,7 @@ class gameBoardScreen extends Component {
         return (
             <View style={styles.container}>
                 <ImageBackground
-                    source={this.state.background ? {uri: this.state.background} : require('../Themes/Images/background.png')}
+                    source={this.state.background ? {uri: this.state.background} : require('../Themes/Images/Background/default.png')}
                     style={{width: '100%', height: '100%'}}
                 >
                 <View style={styles.imagesWrapperPlayerOne}>
@@ -182,16 +182,16 @@ class gameBoardScreen extends Component {
                 <View>
                     {
                         this.state.turn == 1 &&
-                        <Text style={{ position: 'absolute', left: 145, bottom: 280, fontSize: 30, color: '#FFFFFF', fontFamily: 'big_noodle_titling_oblique'}}>A votre tour</Text>
+                        <Text style={{ position: 'absolute', transform: [{ rotate: '180deg' }], textShadowColor: '#000000', textShadowOffset: { width: 0, height: 0 },textShadowRadius: 15, left: 145, bottom: 280, fontSize: 30, color: '#FFFFFF', fontFamily: 'big_noodle_titling_oblique'}}>A votre tour</Text>
                     }
                     {
                         this.state.turn == 2 &&
-                        <Text style={{position: 'absolute', left: 145, bottom: 20, color: '#FFFFFF', fontSize: 30, fontFamily: 'big_noodle_titling_oblique'}}>A votre tour</Text>
+                        <Text style={{position: 'absolute', textShadowColor: '#000000', textShadowOffset: { width: 0, height: 0 },textShadowRadius: 15, left: 145, bottom: 20, color: '#FFFFFF', fontSize: 30, fontFamily: 'big_noodle_titling_oblique'}}>A votre tour</Text>
                     }
-                    <Text style={{ position: 'absolute', left: 30, bottom: 290, fontSize: 25, color: '#FFFFFF', fontFamily: 'big_noodle_titling_oblique'}}>
+                    <Text style={{ position: 'absolute', transform: [{ rotate: '180deg' }], textShadowColor: '#000000', textShadowOffset: { width: 0, height: 0 },textShadowRadius: 15, left: 30, bottom: 290, fontSize: 25, color: '#FFFFFF', fontFamily: 'big_noodle_titling_oblique'}}>
                        PV:  {this.state.player_one.hp}
                     </Text>
-                    <Text style={{ position: 'absolute', right: 30, bottom: 5, fontSize: 25, color: '#FFFFFF', fontFamily: 'big_noodle_titling_oblique'}} >
+                    <Text style={{ position: 'absolute', textShadowColor: '#000000', textShadowOffset: { width: 0, height: 0 },textShadowRadius: 15, right: 30, bottom: 5, fontSize: 25, color: '#FFFFFF', fontFamily: 'big_noodle_titling_oblique'}} >
                         PV:  {this.state.player_two.hp}
                     </Text>
                 </View>
