@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
-import { View, Text, Image, ImageBackground, TouchableOpacity, AsyncStorage } from 'react-native';
+import { View, Text, Image, ImageBackground, TouchableOpacity, AsyncStorage, Animated } from 'react-native';
+
+import SoundPlayer from 'react-native-sound-player'
+
+import { Animatable } from '../Themes'
 
 import Storage from 'react-native-storage';
 
@@ -29,7 +33,9 @@ class gameBoardScreen extends Component {
             player_one: { hp: 50 },
             player_two: { hp: 50 },
             turn: 1,
-            background: ""
+            background: "",
+            player_one_crit: false,
+            player_two_crit: false
         }
     }
 
@@ -71,17 +77,44 @@ class gameBoardScreen extends Component {
 
     onAttack(turn, index) {
         if (this.state.turn == turn) {
+            try{
+                if(Math.floor(Math.random() * 2) + 1 == 1){
+                    SoundPlayer.playUrl(index.song_1)
+                } else{
+                    SoundPlayer.playUrl(index.song_2)
+                }
+            }catch(e){
+                console.warn(`cannot play the sound file`, e)
+            }
+
             rand = Math.floor(Math.random() * 10) + 1;
             if (index.critical_hit - 1 >= rand) {
                 critical = 1 + (index.critical_hit / 100);
                 attack = Math.ceil(index.attack * critical)
+                
+            if (this.state.turn == 1) {
+                this.setState({player_two_crit: true})
+                setTimeout(() => {
+                    this.setState({player_two_crit: false})
+                }, 1000);
+            } else {
+                this.setState({player_two_crit: false})
+            }
 
-                // todo animation hit
+            if (this.state.turn == 2) {
+                this.setState({player_one_crit: true})
+                setTimeout(() => {
+                    this.setState({player_one_crit: false})
+                }, 1000);
+            } else {
+                this.setState({player_one_crit: false})
+            }
+
             } else {
                 attack = index.attack
             }
-
-            // todo animation attack
+            
+            
             if (this.state.turn == 1) {
                 if (this.state.player_two.hp - attack <= 0) {
                     hp = 0
@@ -168,6 +201,12 @@ class gameBoardScreen extends Component {
                     style={{width: '100%', height: '100%'}}
                 >
                 <View style={styles.imagesWrapperPlayerOne}>
+                    { 
+                        this.state.player_two_crit == true &&
+                        <View style={{position: 'absolute', top: 450, left: 150, zIndex: 9999}}>
+                        <Animatable.Image animation='pulse' source={require('../Themes/Images/critical.png')}/>
+                        </View>
+                    }
                     {
                         this.state.player_one_heroes[0].map((index, key) => {
 
@@ -196,7 +235,12 @@ class gameBoardScreen extends Component {
                     </Text>
                 </View>
                 <View style={styles.imagesWrapperPlayerTwo}>
-
+                { 
+                        this.state.player_one_crit == true &&
+                        <View style={{position: 'absolute', bottom: 450, left: 150, zIndex: 9999}}>
+                        <Animatable.Image animation='pulse' source={require('../Themes/Images/critical.png')}/>
+                        </View>
+                    }
                     {
                         this.state.player_two_heroes[0].map((index, key) => {
                             return (
