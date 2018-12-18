@@ -24,7 +24,7 @@ class BoardScreen extends Component {
         super(props);
 
         this.state = {
-            data: []
+            background: ""
         };
 
         this._navigateTo = this._navigateTo.bind(this);
@@ -42,7 +42,7 @@ class BoardScreen extends Component {
                 syncInBackground: true,
             })
             .then(ret => {
-                this.setState({data: ret})
+                this.setState({background: ret.actualBackground})
             }).catch(err => {
                 if (err.name == 'NotFoundError') {
                     this.setState({error: true})
@@ -54,7 +54,7 @@ class BoardScreen extends Component {
         return (
             <View>
                 <ImageBackground
-                    source={this.state.data.background ? {uri: this.state.data.background} : require('../Themes/Images/background.png')}
+                    source={this.state.background ? {uri: this.state.background} : require('../Themes/Images/background.png')}
                     style={{width: '100%', height: '100%'}}
                 >
                 <View style={styles.container}>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { View, Text, Image, Button, TouchableOpacity, AsyncStorage } from 'react-native';
+import { View, Text, Image, ImageBackground, TouchableOpacity, AsyncStorage } from 'react-native';
 
 import Storage from 'react-native-storage';
 
@@ -29,7 +29,7 @@ class gameBoardScreen extends Component {
             player_one: { hp: 50 },
             player_two: { hp: 50 },
             turn: 1,
-            all_hero: [{name: "tracer", win: 0},{name: "winston", win: 0},{name: "pharah", win: 0},{name: "reinhardt", win: 0},{name: "symmetra", win: 0},{name: "reaper", win: 0},{name: "mccree", win: 0},{name: "mercy", win: 0},{name: "mei", win: 0},{name: "roadhog", win: 0},{name: "junkrat", win: 0},{name: "hanzo", win: 0},{name: "window", win: 0},{name: "zenyatta", win: 0},{name: "bastion", win: 0},{name: "zarya", win: 0},{name: "lucio", win: 0},{name: "dva", win: 0},{name: "soldier_76", win: 0},{name: "genji", win: 0}]
+            background: ""
         }
     }
 
@@ -54,6 +54,19 @@ class gameBoardScreen extends Component {
         this.setState({
             player_two_heroes: [...this.state.player_two_heroes, obj_hero_two]
         })
+        storage
+            .load({
+                key: 'dataArena',
+                autoSync: true,
+                syncInBackground: true,
+            })
+            .then(ret => {
+                this.setState({background: ret.actualBackgroundArena})
+            }).catch(err => {
+                if (err.name == 'dataArena') {
+                    // this.setState({error: true})
+                }
+            });
     }
 
     onAttack(turn, index) {
@@ -150,6 +163,10 @@ class gameBoardScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <ImageBackground
+                    source={this.state.background ? {uri: this.state.background} : require('../Themes/Images/background.png')}
+                    style={{width: '100%', height: '100%'}}
+                >
                 <View style={styles.imagesWrapperPlayerOne}>
                     {
                         this.state.player_one_heroes[0].map((index, key) => {
@@ -165,16 +182,16 @@ class gameBoardScreen extends Component {
                 <View>
                     {
                         this.state.turn == 1 &&
-                        <Text style={{ position: 'absolute', left: 60, bottom: 250}}>A votre tour</Text>
+                        <Text style={{ position: 'absolute', left: 145, bottom: 280, fontSize: 30, color: '#FFFFFF', fontFamily: 'big_noodle_titling_oblique'}}>A votre tour</Text>
                     }
                     {
                         this.state.turn == 2 &&
-                        <Text>A votre tour</Text>
+                        <Text style={{position: 'absolute', left: 145, bottom: 20, color: '#FFFFFF', fontSize: 30, fontFamily: 'big_noodle_titling_oblique'}}>A votre tour</Text>
                     }
-                    <Text style={{ position: 'absolute', left: 30, bottom: 300 }}>
+                    <Text style={{ position: 'absolute', left: 30, bottom: 290, fontSize: 25, color: '#FFFFFF', fontFamily: 'big_noodle_titling_oblique'}}>
                        PV:  {this.state.player_one.hp}
                     </Text>
-                    <Text style={{ position: 'absolute', right: 30 }} >
+                    <Text style={{ position: 'absolute', right: 30, bottom: 5, fontSize: 25, color: '#FFFFFF', fontFamily: 'big_noodle_titling_oblique'}} >
                         PV:  {this.state.player_two.hp}
                     </Text>
                 </View>
@@ -190,6 +207,7 @@ class gameBoardScreen extends Component {
                         })
                     }
                 </View>
+                </ImageBackground>
             </View>
         )
     }
@@ -197,7 +215,7 @@ class gameBoardScreen extends Component {
 
 let styles = {
     container: {
-        flex: 1
+        flex: 1,
     },
     imagesWrapperPlayerOne: {
         flex: 1,
@@ -208,7 +226,7 @@ let styles = {
     imagePlayerOne: {
         transform: [{ rotate: '180deg' }],
         height: 150,
-        width: 90,
+        width: 100,
         resizeMode: 'contain'
     },
     imagesWrapperPlayerTwo: {
@@ -218,7 +236,7 @@ let styles = {
     },
     imagePlayerTwo: {
         height: 150,
-        width: 90,
+        width: 100,
         resizeMode: 'contain'
     }
 }
