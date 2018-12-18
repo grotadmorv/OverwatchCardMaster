@@ -163,11 +163,23 @@ class gameBoardScreen extends Component {
                     }
                 </View>
                 <View>
-                    <Text style={{ marginLeft: 100 }} >
-                        {this.state.turn} {this.state.player_one.hp} {this.state.player_two.hp}
+                    {
+                        this.state.turn == 1 &&
+                        <Text style={{ position: 'absolute', left: 60, bottom: 250}}>A votre tour</Text>
+                    }
+                    {
+                        this.state.turn == 2 &&
+                        <Text>A votre tour</Text>
+                    }
+                    <Text style={{ position: 'absolute', left: 30, bottom: 300 }}>
+                       PV:  {this.state.player_one.hp}
+                    </Text>
+                    <Text style={{ position: 'absolute', right: 30 }} >
+                        PV:  {this.state.player_two.hp}
                     </Text>
                 </View>
                 <View style={styles.imagesWrapperPlayerTwo}>
+
                     {
                         this.state.player_two_heroes[0].map((index, key) => {
                             return (
