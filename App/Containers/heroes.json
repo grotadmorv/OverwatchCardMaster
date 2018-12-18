@@ -4,139 +4,179 @@
         "attack": 4,
         "critical_hit": 4,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544693438-tracer.png",
-        "icon" : "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/tracer.png"
+        "icon" : "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/tracer.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/c/c3/Tracer_-_Cheers%2C_love%21_The_cavalry%27s_here%21.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/9/9c/Tracer_-_Bombs_away%21.ogg"
     },
     "1": {
         "name": "winston",
         "attack": 3,
         "critical_hit": 8,
         "image": "https://image.noelshack.com/fichiers/2018/50/4/1544693451-winston.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/winston.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/winston.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/8/84/Winston_-_Hello_there.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/9/93/Winston_-_Imagination_is_the_essence_of_discovery.ogg"
     },
     "2": {
         "name" : "pharah",
         "attack": 6,
         "critical_hit": 5,
         "image": "https://image.noelshack.com/fichiers/2018/50/4/1544693565-pharah.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/pharah.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/pharah.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/f/f1/Pharah_-_Justice_rains_from_above%21.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/5/57/Pharah_-_Rocket_Barrage_incoming%21.ogg"
     },
     "3": {
         "name" : "reinhardt",
         "attack": 10,
         "critical_hit": 10,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544693565-reinhardt.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/reinhardt.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/reinhardt.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/f/f7/Reinhardt_-_Hammer_Down%21.mp3",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/d/d6/Reinhardt_-_No_lying_down_on_the_job%21.ogg"
     },
     "4": {
         "name" : "symmetra",
         "attack": 3,
         "critical_hit": 6,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544693736-symmetra.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/symmetra.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/symmetra.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/0/08/Symmetra_-_My_full_potential_is_unlocked.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/6/6c/Yah%C3%AD_param_vaastavikita_hai%21.ogg"
     },
     "5": {
         "name" : "reaper",
         "attack": 4,
         "critical_hit": 6,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544693759-reaper.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/reaper.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/reaper.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/3/32/Reaper_-_Die_die_die.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/f/f6/Reaper_-_clearing_the_area.ogg"
     },
     "6": {
         "name": "mccree",
         "attack": 7,
         "critical_hit": 7,
         "image": "https://image.noelshack.com/fichiers/2018/50/4/1544693791-mccree.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/mccree.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/mccree.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/6/64/McCree_-_It%27s_high_noon.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/d/df/McCree_-_Step_right_up.ogg"
     },
     "7": {
         "name" : "mercy",
         "attack": 1,
         "critical_hit": 8,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544693938-mercy.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/mercy.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/mercy.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/2/2a/Helden_sterben_nicht%21.mp3",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/a/a8/Heroes_never_die%21.mp3"
     },
     "8": {
         "name" : "mei",
         "attack": 2,
         "critical_hit": 3,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544693977-mei.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/mei.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/mei.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/3/35/Mei_-_D%C3%B2ng_zh%C3%B9%21_B%C3%B9x%C7%94_z%C7%92u%21.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/e/e8/Mei_-_Freeze%21_Don%27t_move%21.ogg"
     },
     "9": {
         "name" : "roadhog",
         "attack": 6,
         "critical_hit": 9,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544693991-roadhog.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/roadhog.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/roadhog.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/d/d2/Roadhog_-_Here_Little_Piggy.mp3",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/b/b0/Roadhog_-_Squeal_For_Me.mp3"
     },
     "10": {
         "name": "junkrat",
         "attack": 3,
         "critical_hit": 5,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544694081-junkrat.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/junkrat.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/junkrat.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/1/11/Junkrat_-_Fire_in_the_hole%21.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/a/ad/Junkrat_-_Ladies_and_gentlemen%2C_start_your_engines.ogg"
     },
     "11": {
         "name": "hanzo",
         "attack": 5,
         "critical_hit": 5,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544693623-hanzo.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/hanzo.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/hanzo.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/6/61/Hanzo_-_Ry%C5%AB_ga_waga_teki_wo_kurau%21.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/2/2e/Hanzo_-_Let_the_dragon_consume_you%21.ogg"
     },
     "12": {
         "name": "window",
         "attack": 10,
         "critical_hit": 2,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544694209-window.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/widowmaker.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/widowmaker.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/3/3f/Widowmaker_-_Allez%2C_montre-toi.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/9/9f/Widowmaker_-_Ah%2C_je_te_vois.ogg"
     },
     "13": {
         "name" : "zenyatta",
         "attack": 3,
         "critical_hit": 4,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544694222-zenyatta.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/zenyatta.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/zenyatta.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/e/e2/Zenyatta_-_Experience_tranquility.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/a/a9/Zenyatta_-_Pass_into_the_Iris.ogg"
     },
     "14": {
         "name" : "bastion",
         "attack": 2,
         "critical_hit": 6,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544693623-bastion.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/bastion.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/bastion.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/7/70/Bastion_-_4543.mp3",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/3/38/Bastion_-_15227.mp3"
     },
     "15": {
         "name" : "zarya",
         "attack": 4,
         "critical_hit": 7,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544694892-zarya.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/zarya.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/zarya.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/0/08/Zarya_-_Ogon%E2%80%99_po_gotovnosti%21.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/0/05/Zarya_-_Fire_at_will%21.ogg"
     },
     "16": {
         "name" : "lucio",
         "attack": 3,
         "critical_hit": 5,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544693623-lucio.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/lucio.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/lucio.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/0/0b/L%C3%BAcio_-_Oh%2C_let%27s_break_it_down%21.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/2/2e/Vamos_esculachar.ogg"
     },
     "17": {
         "name" : "dva",
         "attack": 6,
         "critical_hit": 6,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544693623-dva.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/dva.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/dva.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/6/60/D.Va_-_Nerf_this%21.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/f/fe/D.Va_-_Activating_Self_Destruct_Sequence.ogg"
     },
     "18": {
         "name" : "soldier_76",
         "attack": 7,
         "critical_hit": 7,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544694951-soldier-76.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/soldier-76.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/soldier-76.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/0/01/S76_-_I%27ve_got_you_in_my_sights.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/b/b6/Tactical_visor_activated.ogg"
     },
     "19": {
         "name" : "genji",
         "attack": 8,
         "critical_hit": 7,
         "image" : "https://image.noelshack.com/fichiers/2018/50/4/1544693623-genji.png",
-        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/genji.png"
+        "icon": "https://arianzargaran.github.io/overwatch-hero-picker_by-geddski/img/heroes/genji.png",
+        "song_1": "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/2/2a/Genji_-_Ry%C5%ABjin_no_ken_wo_kurae%21.ogg",
+        "song_2" : "https://d1u5p3l4wpay3k.cloudfront.net/overwatch_gamepedia/b/b6/Genji_-_Mizu_no_y%C5%8D_ni_nagare.ogg"
     }
 }
