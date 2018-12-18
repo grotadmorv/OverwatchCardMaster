@@ -35,7 +35,11 @@ class gameBoardScreen extends Component {
             turn: 1,
             background: "",
             player_one_crit: false,
-            player_two_crit: false
+            player_two_crit: false,
+            attack_two: "0",
+            attack_one: "0",
+            isEnable_one: false,
+            isEnable_two: false
         }
     }
 
@@ -114,7 +118,18 @@ class gameBoardScreen extends Component {
                 attack = index.attack
             }
             
-            
+            if (this.state.turn == 1 ) {
+                this.setState({attack_two: attack})
+                this.setState({isEnable_two: true})
+                this.setState({isEnable_one: false})
+            }
+
+            if (this.state.turn == 2) {
+                this.setState({attack_one: attack})
+                this.setState({isEnable_one: true})
+                this.setState({isEnable_two: false})
+            }
+
             if (this.state.turn == 1) {
                 if (this.state.player_two.hp - attack <= 0) {
                     hp = 0
@@ -207,6 +222,11 @@ class gameBoardScreen extends Component {
                         <Animatable.Image animation='pulse' source={require('../Themes/Images/critical.png')}/>
                         </View>
                     }
+                    { 
+                        this.state.attack_two &&
+                        <Text disabled={this.state.isEnable_one} 
+                        style={this.state.isEnable_one ? {display: 'none'} : {position: 'absolute', top: 350, left: 190, fontSize: 30,textShadowRadius: 15} }>- {this.state.attack_two}</Text>
+                    }
                     {
                         this.state.player_one_heroes[0].map((index, key) => {
 
@@ -241,6 +261,10 @@ class gameBoardScreen extends Component {
                         <Animatable.Image animation='pulse' source={require('../Themes/Images/critical.png')}/>
                         </View>
                     }
+                    { 
+                        this.state.attack_one &&
+                        <Text style={this.state.isEnable_one ? {position: 'absolute', bottom: 350, left: 190, fontSize: 30,textShadowRadius: 15, textShadowColor: '#000000', textShadowOffset: { width: 0, height: 0 }} : {display: 'none'} }>- {this.state.attack_two}</Text>
+                    }   
                     {
                         this.state.player_two_heroes[0].map((index, key) => {
                             return (
