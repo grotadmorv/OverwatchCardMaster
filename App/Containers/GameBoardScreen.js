@@ -39,7 +39,8 @@ class gameBoardScreen extends Component {
             attack_two: "0",
             attack_one: "0",
             isEnable_one: false,
-            isEnable_two: false
+            isEnable_two: false,
+            isFinish: false
         }
     }
 
@@ -145,7 +146,7 @@ class gameBoardScreen extends Component {
                 } else {
                     hp = this.state.player_one.hp - attack
                 }
-                this.setState({ player_one: { hp: (this.state.player_one.hp - attack) }, turn: 1 })
+                this.setState({ player_one: { hp: hp }, turn: 1 })
             }
         }
     }
@@ -205,6 +206,7 @@ class gameBoardScreen extends Component {
 
     onWin(winner) {
         // todo animation win
+        this.setState({isFinish: true})
         winner == 1 ? this.loadPlayerData(true) : this.loadPlayerData(false);
     }
 
@@ -231,7 +233,7 @@ class gameBoardScreen extends Component {
                         this.state.player_one_heroes[0].map((index, key) => {
 
                             return (
-                                <TouchableOpacity onPress={() => this.onAttack(1, index)} style={styles.containerOne} key={{ key }}>
+                                <TouchableOpacity disabled={this.state.isFinish} onPress={() => this.onAttack(1, index)} style={styles.containerOne} key={{ key }}>
                                     <Image style={styles.imagePlayerOne} source={{ uri: index.image }} />
                                 </TouchableOpacity>
                             )
@@ -268,7 +270,7 @@ class gameBoardScreen extends Component {
                     {
                         this.state.player_two_heroes[0].map((index, key) => {
                             return (
-                                <TouchableOpacity onPress={() => this.onAttack(2, index)} style={styles.containerTwo} key={{ key }}>
+                                <TouchableOpacity disabled={this.state.isFinish} onPress={() => this.onAttack(2, index)} style={styles.containerTwo} key={{ key }}>
                                     <Image key={{ key }} style={styles.imagePlayerTwo} source={{ uri: index.image }} />
                                 </TouchableOpacity>
                             )
